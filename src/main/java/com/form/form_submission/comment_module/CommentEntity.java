@@ -1,6 +1,8 @@
 package com.form.form_submission.comment_module;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.Id;
 
 @Entity
 @Getter@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +22,6 @@ public class CommentEntity {
     public String name;
     public String email;
     public String  newcomment;
-    public String page;
+    public String page;                // to store the pageid
 
 }

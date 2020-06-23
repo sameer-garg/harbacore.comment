@@ -10,7 +10,7 @@ public class CommentService {
     private CommentRepository repo;
 
     public boolean dataPersistObject(CommentRequestVO comment) {
-        CommentEntity savecomment=new CommentEntity();
+        CommentEntity savecomment=new CommentEntity();                  // creating an object of entity class  for persisting it into database
         savecomment.name=comment.name;
         savecomment.email=comment.email;
         savecomment.newcomment=comment.newcomment;
