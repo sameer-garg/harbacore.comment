@@ -1,3 +1,112 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Comments</title>
+</head>
+
+<body>
+<div class="container border border-secondary border-bottom-0 border-top-0">
+    <form  th:action="@{/auto-form}" th:object="${Comment}" method="POST">  <!--// storing the data obatiner in collector object "feedpost"
+                                                                              and  directing the object at end point "feedposted"-->
+        <div class="heading">
+            <h2>Add Comment</h2>
+        </div>
+        <hr >
+        <div class="row justify-content-lg-center ">
+
+            <div class=" col-lg-3">
+
+                <div class="form-group ">  <!--// storing the various input in object fields-->
+                    <!-- <label for="exampleInputName">Name</label> -->
+                    <input type="text" class="form-control" placeholder="Enter name" th:field="*{name}" required>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                   <!-- <label for="email" class="input">Email</label><br>-->
+                    <input type="email"  class="form-control" placeholder="Enter Email" maxlength="50" th:field="*{email}" required><br>
+                </div>
+             </div>
+
+        </div>
+
+        <div class="row  justify-content-lg-center">
+
+            <div class="col-lg-9">
+                <div class=" form-group ">
+                    <input type="text" class="h-100 form-control" placeholder="Comment" th:field="*{newcomment}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Post</button>
+            </div>
+        </div>
+        <p><input type="hidden" th:value="${pageid}" th:attr="name='page'"/> </p>         <!--  // storing the pageid value sent in using ${page} is comment.page-->
+    </form>
+    <h2 class="heading">Comments</h2>
+    <tr th:each="comment: ${Comments}">    <!--//  for iternating through each post in the list parameter sent"posts"-->
+        <div class="row  justify-content-lg-center ">
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header">
+                        <td th:text="${comment.name}"/>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <td th:text="${comment.newcomment}"/>
+                            <footer class="blockquote-footer"><td th:text="${comment.email}"/> </footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <!--<div class="card text-white bg-dark mb-3  cont  ">
+                    <div class="card-header bg-transparent  border-light mb-3">
+                        <td th:text="${post.name}"/>   &lt;!&ndash; // dipaying the value of name field of object&ndash;&gt;
+                    </div>
+                    <div class="picture">
+                        <img class=" img-fluid card-img-top" th:src="@{${post.image}}"> &lt;!&ndash;// storing the image url in src&ndash;&gt;
+                    </div>
+                    <hr class=" demarkate-line">
+                    <div class="card-body cardbody">
+                        <p class="card-text cardtext">
+                        <td th:text="${post.content}"/>       &lt;!&ndash; // displaying the content of each post&ndash;&gt;
+                        </p>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </tr>
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+<!--
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -10,9 +119,10 @@
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p>email: <input type="email" th:field="*{email}" /></p>
     <p>Comment: <input type="text" th:field="*{newcomment}" /></p>
-    <p><input type="hidden" th:value="${page}" th:attr="name='page'"/> </p>           // storing the pageid value sent in using ${page} is comment.page
+    <p><input type="hidden" th:value="${page}" th:attr="name='page'"/> </p>         &lt;!&ndash;  // storing the pageid value sent in using ${page} is comment.page&ndash;&gt;
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     <span>PageId:</span><span th:text="${page}"></span><br/>
 </form>
 </body>
 </html>
+-->

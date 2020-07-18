@@ -1,8 +1,14 @@
-package com.form.form_submission.comment_module;
+package com.form.form_submission.comment_module.Service;
 
-import org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl;
+import com.form.form_submission.comment_module.Beans.ResponseVO.CommentResponseVO;
+import com.form.form_submission.comment_module.Database.DAO.CommentRepository;
+import com.form.form_submission.comment_module.Database.Model.CommentEntity;
+import com.form.form_submission.comment_module.Beans.RequestVO.CommentRequestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CommentService {
@@ -31,5 +37,12 @@ public class CommentService {
         {
             return false;
         }
+    }
+    public List<CommentResponseVO> getListOfPageComments(String pageid) {
+        List<CommentResponseVO> commentResponseVOList = new ArrayList<>();
+        repo.findByPage(pageid).stream().forEach(
+                entity -> commentResponseVOList.add(new CommentResponseVO( entity.getName(),entity.getEmail(),entity.getNewcomment())));
+
+        return commentResponseVOList;
     }
 }
