@@ -1,4 +1,4 @@
-package com.form.form_submission.comment_module.Database.Model;
+package com.form.form_submission.comment_module.database.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

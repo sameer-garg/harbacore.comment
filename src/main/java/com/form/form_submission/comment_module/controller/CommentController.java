@@ -1,13 +1,11 @@
-package com.form.form_submission.comment_module.Controller;
+package com.form.form_submission.comment_module.controller;
 
-import com.form.form_submission.comment_module.Beans.RequestVO.CommentRequestVO;
-import com.form.form_submission.comment_module.Service.CommentService;
+import com.form.form_submission.comment_module.beans.requestVO.CommentRequestVO;
+import com.form.form_submission.comment_module.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.concurrent.ExecutionException;
 
 @Controller
 public class CommentController {

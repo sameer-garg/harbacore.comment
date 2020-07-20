@@ -1,4 +1,4 @@
-package com.form.form_submission.comment_module.Beans.ResponseVO;
+package com.form.form_submission.comment_module.beans.responseVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

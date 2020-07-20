@@ -1,9 +1,9 @@
-package com.form.form_submission.comment_module.Service;
+package com.form.form_submission.comment_module.service;
 
-import com.form.form_submission.comment_module.Beans.ResponseVO.CommentResponseVO;
-import com.form.form_submission.comment_module.Database.DAO.CommentRepository;
-import com.form.form_submission.comment_module.Database.Model.CommentEntity;
-import com.form.form_submission.comment_module.Beans.RequestVO.CommentRequestVO;
+import com.form.form_submission.comment_module.beans.responseVo.CommentResponseVO;
+import com.form.form_submission.comment_module.database.dao.CommentRepository;
+import com.form.form_submission.comment_module.database.model.CommentEntity;
+import com.form.form_submission.comment_module.beans.requestVO.CommentRequestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
